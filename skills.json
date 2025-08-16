@@ -1,0 +1,12 @@
+{
+    "plugins": [
+        "@moxie-protocol/plugin-betswirl",
+        "@moxie-protocol/plugin-moxie-autonomous-trading",
+        "@moxie-protocol/plugin-senpi-sharing",
+        "@moxie-protocol/plugin-senpi-orders",
+        "@moxie-protocol/plugin-top-traders",
+        "@moxie-protocol/plugin-degenfans-alfafrens",
+        "@moxie-protocol/plugin-senpi-tutorial",
+        "@moxie-protocol/plugin-updown-eth-switch"
+    ]
+}
