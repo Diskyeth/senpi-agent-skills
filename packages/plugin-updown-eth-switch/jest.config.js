@@ -10,8 +10,8 @@ export default {
     ],
     coverageDirectory: 'coverage',
     coverageReporters: ['text', 'lcov', 'html'],
-    moduleNameMapping: {
-        '^(\\.{1,2}/.*)\\.js$': '$1',
+    moduleNameMapper: {
+        '^(\.{1,2}/.*)$': '$1',
     },
     transform: {
         '^.+\\.ts$': ['ts-jest', {

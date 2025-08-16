@@ -10,7 +10,7 @@ import {
     generateObjectDeprecated,
     ModelClass,
 } from "@moxie-protocol/core";
-import { updownRunnerService } from "../services/updownRunner.js";
+import { updownRunnerService } from "../services/updownRunner";
 
 interface SetParamRequest {
     parameter: string;

@@ -14,10 +14,10 @@ import {
     SwapParams,
     BASE_TOKENS,
     INITIAL_STATE,
-} from "../types.js";
-import { loadConfig, validateConfig, validateEnvironment } from "../utils/config.js";
-import { getETHUSDCPrice, validatePriceStability } from "../utils/price.js";
-import { getBalances, executeSwap, calculateTradeAmount } from "../utils/trading.js";
+} from "../types";
+import { loadConfig, validateConfig, validateEnvironment } from "../utils/config";
+import { getETHUSDCPrice, validatePriceStability } from "../utils/price";
+import { getBalances, executeSwap, calculateTradeAmount } from "../utils/trading";
 
 class UpdownRunnerService implements Service {
     private static instance: UpdownRunnerService;
@@ -59,11 +59,11 @@ class UpdownRunnerService implements Service {
         // Initialize provider
         this.provider = new ethers.JsonRpcProvider(process.env.RPC_URL);
 
-        // Initialize wallet client (this should be available from the runtime context)
-        // In a real implementation, this would come from the runtime state
+        // Initialize wallet client with address
+        // The MoxieWalletClient will use PRIVATE_KEY from env if available
         try {
             const wallet = new ethers.Wallet(process.env.PRIVATE_KEY!, this.provider);
-            this.walletClient = new MoxieWalletClient(wallet, this.provider);
+            this.walletClient = new MoxieWalletClient(wallet.address);
         } catch (error) {
             elizaLogger.error("Failed to initialize wallet client:", error);
             throw error;
@@ -233,7 +233,7 @@ class UpdownRunnerService implements Service {
         }
 
         try {
-            const walletAddress = await this.walletClient!.getSigner().getAddress();
+            const walletAddress = this.walletClient!.address;
             const balances = await getBalances(this.provider!, walletAddress, currentPrice);
 
             // Calculate trade amount

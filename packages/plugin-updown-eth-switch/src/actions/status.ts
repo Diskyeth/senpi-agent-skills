@@ -7,7 +7,7 @@ import {
     type ActionExample,
     elizaLogger,
 } from "@moxie-protocol/core";
-import { updownRunnerService } from "../services/updownRunner.js";
+import { updownRunnerService } from "../services/updownRunner";
 
 export const statusAction: Action = {
     name: "STATUS_UPDOWN_ETH_BOT",

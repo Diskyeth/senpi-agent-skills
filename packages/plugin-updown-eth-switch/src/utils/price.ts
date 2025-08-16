@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { PriceData, BASE_TOKENS } from "../types.js";
+import { PriceData, BASE_TOKENS } from "../types";
 import { elizaLogger } from "@moxie-protocol/core";
 
 // Uniswap V3 Factory on Base

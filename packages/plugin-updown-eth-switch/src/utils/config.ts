@@ -1,4 +1,4 @@
-import { BotConfig, DEFAULT_CONFIG } from "../types.js";
+import { BotConfig, DEFAULT_CONFIG } from "../types";
 
 export function loadConfig(): BotConfig {
     return {
@@ -9,7 +9,7 @@ export function loadConfig(): BotConfig {
         SLIPPAGE_BPS: parseInt(process.env.SLIPPAGE_BPS || DEFAULT_CONFIG.SLIPPAGE_BPS.toString(), 10),
         BREAK_BUFFER_BPS: parseInt(process.env.BREAK_BUFFER_BPS || DEFAULT_CONFIG.BREAK_BUFFER_BPS.toString(), 10),
         COOLDOWN_SEC: parseInt(process.env.COOLDOWN_SEC || DEFAULT_CONFIG.COOLDOWN_SEC.toString(), 10),
-        SAFE_MODE: process.env.SAFE_MODE?.toLowerCase() === "true" || DEFAULT_CONFIG.SAFE_MODE,
+        SAFE_MODE: process.env.SAFE_MODE ? process.env.SAFE_MODE.toLowerCase() === "true" : DEFAULT_CONFIG.SAFE_MODE,
     };
 }
 

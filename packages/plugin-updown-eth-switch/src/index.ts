@@ -1,9 +1,9 @@
 import type { Plugin } from "@moxie-protocol/core";
-import { startBotAction } from "./actions/startBot.js";
-import { stopBotAction } from "./actions/stopBot.js";
-import { statusAction } from "./actions/status.js";
-import { setParamAction } from "./actions/setParam.js";
-import { updownRunnerService } from "./services/updownRunner.js";
+import { startBotAction } from "./actions/startBot";
+import { stopBotAction } from "./actions/stopBot";
+import { statusAction } from "./actions/status";
+import { setParamAction } from "./actions/setParam";
+import { updownRunnerService } from "./services/updownRunner";
 
 const updownEthSwitchPlugin: Plugin = {
     name: "updown-eth-switch",
